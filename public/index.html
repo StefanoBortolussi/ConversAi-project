@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConversAI - Web App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-inner">
+                <div class="sidebar-header">
+                    <h2>ConversAI</h2>
+                    <button id="btn-new-project" class="btn primary">+ Nuovo Progetto</button>
+                </div>
+
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Cerca nello storico...">
+                    <button id="btn-search" class="btn secondary">🔍</button>
+                </div>
+
+                <div class="projects-list" id="projects-container">
+                </div>
+            </div>
+        </aside>
+
+        <button id="btn-toggle-sidebar" class="sidebar-toggle" aria-label="Apri o chiudi la barra laterale" aria-expanded="true">◂</button>
+
+        <main class="chat-area">
+            <header class="chat-header" id="chat-header">
+                <div class="chat-info">
+                    <h3 id="current-topic">Seleziona una conversazione</h3>
+                    <span id="current-project-name" class="badge">Nessun progetto selezionato</span>
+                </div>
+                <div class="chat-actions">
+                    <button id="btn-export-chat" class="btn secondary" disabled>📥 Esporta JSON</button>
+                    <button id="btn-delete-conv" class="btn danger" disabled>🗑️ Elimina</button>
+                </div>
+            </header>
+
+            <div class="messages-container" id="messages-container">
+                <div class="empty-state">
+                    <p>Seleziona o crea un nuovo progetto e una conversazione per iniziare a chattare con ConversAI.</p>
+                </div>
+            </div>
+
+            <form id="chat-form" class="chat-input-area">
+                <input type="text" id="user-input" placeholder="Scrivi un messaggio..." disabled autocomplete="off">
+                <button type="submit" id="btn-send" class="btn primary" disabled>Invia</button>
+            </form>
+        </main>
+    </div>
+
+    <div id="search-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Risultati della Ricerca</h3>
+                <button id="btn-close-search" class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body" id="search-results-container">
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
